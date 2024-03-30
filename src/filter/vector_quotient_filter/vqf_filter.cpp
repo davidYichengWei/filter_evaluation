@@ -22,6 +22,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <tmmintrin.h>
+#include <climits>
 
 #include "vqf_filter.h"
 #include "vqf_precompute.h"

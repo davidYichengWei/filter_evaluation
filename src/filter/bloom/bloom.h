@@ -6,7 +6,7 @@
 #include <sstream>
 #include <climits>
 
-#include "hashutil.h"
+#include "../hashutil.h"
 
 using namespace std;
 using namespace hashing;
