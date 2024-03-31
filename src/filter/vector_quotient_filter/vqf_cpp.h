@@ -4,7 +4,7 @@
 #include <algorithm>
 #include <assert.h>
 
-#include "hashutil.h"
+#include "../hashutil.h"
 
 #include "vqf_filter.cpp"
 #include "vqf_filter.h"
