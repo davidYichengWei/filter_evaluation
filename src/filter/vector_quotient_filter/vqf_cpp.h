@@ -167,12 +167,9 @@ template <typename ItemType, typename HashFamily>
 std::string VQFilter<ItemType, HashFamily>::Info() const {
   std::stringstream ss;
   ss << "VQFilter Status:\n"
-     << "\t\tKeys stored: " << Size() << "\n";
-  if (Size() > 0) {
-    ss << "\t\tk:   " << BitsPerItem() << "\n";
-  } else {
-    ss << "\t\tk:   N/A\n";
-  }
+     << "\t\tMemory usage in bytes: " << bytesUsed << "\n"
+     << "\t\tBits per item: " << BitsPerItem() << "\n";
+
   return ss.str();
 }
 } // namespace vqfilter

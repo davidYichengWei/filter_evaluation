@@ -104,6 +104,7 @@ public:
   size_t bitCount;
   int kk;
   HashFamily hasher;
+  size_t bits_per_item_;
 
   double BitsPerItem() const { return k; }
 
@@ -114,6 +115,7 @@ public:
     this->arrayLength = (bitCount + 63) / 64;
     data = new uint64_t[arrayLength];
     std::fill_n(data, arrayLength, 0);
+    bits_per_item_ = bits_per_item;
   }
 
   ~BloomFilter() { delete[] data; }
@@ -254,12 +256,8 @@ std::string
 BloomFilter<ItemType, bits_per_item, branchless, HashFamily, k>::Info() const {
   std::stringstream ss;
   ss << "BloomFilter Status:\n"
-     << "\t\tKeys stored: " << Size() << "\n";
-  if (Size() > 0) {
-    ss << "\t\tk:   " << BitsPerItem() << "\n";
-  } else {
-    ss << "\t\tk:   N/A\n";
-  }
+     << "\t\tMemory usage in bytes: " << SizeInBytes() << "\n"
+     << "\t\tBits per item: " << bits_per_item_ << "\n";
   return ss.str();
 }
 
